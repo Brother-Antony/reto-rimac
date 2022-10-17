@@ -1,0 +1,12 @@
+@import './colors';
+@import './mixins';
+@import './buttons';
+
+.plan {
+    .header {
+        position: sticky;
+        top: 0;
+        border-bottom: 1px solid $gray5;
+        z-index: 12;
+    }
+}

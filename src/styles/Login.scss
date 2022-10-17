@@ -1,0 +1,256 @@
+@import './colors';
+@import './mixins';
+@import './buttons';
+
+.account {
+    .header {
+        position: absolute;
+        background-color: transparent;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 12;
+    }
+
+    .login {
+        position: relative;
+
+        .container {
+            padding: 0;
+        }
+
+        .full-screen {
+            display: flex;
+            z-index: 1
+        }
+
+        .title {
+            &.reg-36 {
+                letter-spacing: -.2px;
+            }
+        }
+
+        &__content {
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            &--left {
+                position: relative;
+                background-color: $gray7;
+                width: 100%;
+                padding: 96px 8rem 56px 32px;
+
+                .block-img {
+                    img {
+                        margin: auto;
+                    }
+                }
+
+                .block-info {
+                    .title {
+                        margin-top: 8px;
+                    }
+
+                    .reg-14 {
+                        width: 100%;
+                        max-width: 288px;
+                        margin-top: 12px;
+                    }
+                }
+            }
+
+            &--right {
+                width: 100%;
+                padding: 40px 32px 54px;
+
+                .block-form {
+                    width: 100%;
+                    max-width: 288px;
+                    margin: auto;
+
+                    .title {
+                        &.reg-28 {
+                            letter-spacing: -.2px;
+                        }
+                    }
+                }
+
+                .flex-input {
+                    margin-top: 24px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+                }
+
+                .block-flex {
+                    margin-top: 24px;
+                    display: flex;
+                    gap: 12px;
+
+                    .reg-12 {
+                        font-weight: 300;
+
+                        a {
+                            display: inline;
+                            font-weight: 500;
+
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+
+                .block-btn {
+                    margin-top: 40px;
+
+                    .btn {
+                        width: 100%;
+                        @include btn;
+                    }
+                }
+            }
+        }
+
+        .avatar-mobile {
+            position: absolute;
+            right: 0;
+            bottom: -1.5rem;
+        }
+
+        .text-copy {
+            position: absolute;
+            bottom: 40px;
+            left: 32px;
+            width: calc(37.7% - 32px);
+            margin-top: auto;
+        }
+
+        &::after {
+            content: "";
+            display: none;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            max-width: 37.7%;
+            background: url(../assets/image-login.svg);
+            background-size: cover;
+            background-position: right;
+            background-repeat: no-repeat;
+        }
+
+        @include breakpoint-up(medium) {
+            min-height: 100vh;
+            overflow: hidden;
+
+            .container {
+                padding: 0 32px;
+            }
+
+            .full-screen {
+                padding-top: 64px;
+                padding-bottom: 40px;
+                min-height: 100vh;
+            }
+
+            &__content {
+                @include flex-center;
+                justify-content: space-between;
+                padding: 32px 0 56px;
+
+                &--left {
+                    background-color: transparent;
+                    max-width: 36.8%;
+                    padding: 0 64px 0 32px;
+        
+                    .block-info {
+                        margin-top: 24px;
+        
+                        .title {
+                            margin-top: 4px;
+                        }
+        
+                        .reg-14 {
+                            margin-top: 16px;
+                        }
+                    }
+                }
+
+                &--right {
+                    padding: 0 64px;
+
+                    .block-btn {
+                        .btn {
+                            max-width: 192px;
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                display: block;
+            }
+        }
+
+        @include breakpoint-up(large) {
+            &__content {
+                &--left {
+                    max-width: 35%;
+                }
+            }
+
+            .text-copy {
+                width: calc(35.8% - 32px);
+            }
+
+            &::after {
+                width: 100%;
+                max-width: calc(50% - 168px);
+            }
+        }
+
+        @include breakpoint-down(xsmall) {
+            &__content {
+                &--left {
+                    .block-info {
+                        .paragraph {
+                            &.bold-12 {
+                                font-size: 10px;
+                                line-height: 16px;
+                            }
+                        }
+
+                        .title {
+                            &.reg-36 {
+                                font-size: 28px;
+                                line-height: 36px;
+                                letter-spacing: -.6px;
+                            }
+                        }
+
+                        .reg-14 {
+                            max-width: 183px;
+                        }
+                    }
+                }
+
+                &--right {
+                    .block-form {
+                        max-width: 100%;
+
+                        .title {
+                            &.reg-28 {
+                                font-size: 24px;
+                                line-height: 32px;
+                            }
+                        }
+                    }
+
+                    .block-btn {
+                        margin-top: 32px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@import './colors';
+@import './mixins';
+
+.header {
+    background-color: $white;
+
+    // Text
+    .paragraph {
+        &.reg-12 {
+            letter-spacing: .2px;
+        }
+    }
+
+    nav {
+        @include flex-center;
+        justify-content: space-between;
+        height: 56px;
+    }
+
+    &__right {
+        @include flex-center;
+        gap: 23px;
+    }
+
+    .phone-link {
+        @include flex-center;
+        gap: 5px;
+    }
+
+    @include breakpoint-up(medium) {
+        nav {
+            height: 64px;
+        }
+    }
+
+    @include breakpoint-down(xsmall) {
+        &__logo {
+            img {
+                width: 92px;
+                min-width: 92px;
+            }
+        }
+    }
+}
