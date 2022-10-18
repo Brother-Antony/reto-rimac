@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import SectionGracias from '../components/SectionGracias';
-import '../Styles.scss';
+import '../styles.scss';
 import '../styles/Gracias.scss';
 
 const Gracias = () => {

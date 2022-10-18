@@ -2,11 +2,314 @@
 @import './mixins';
 @import './buttons';
 
-.plan {
+.armaPlan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
     .header {
         position: sticky;
         top: 0;
         border-bottom: 1px solid $gray5;
         z-index: 12;
+    }
+
+    .plan {
+        position: relative;
+        padding-bottom: calc(4rem + 84px);
+
+        .container {
+            padding: 0;
+        }
+
+        .full-screen {
+            display: flex;
+            z-index: 1
+        }
+
+        &__content {
+            flex: 0 0 100%;
+            max-width: 100%;
+
+            &--left {
+                width: 100%;
+                margin-top: 4px;
+
+                .steps {
+                    width: 100%;
+                    @include flex-center;
+                    padding: 12px 32px;
+
+                    .title {
+                        padding: 0 16px 0 12px;
+                        letter-spacing: .8px;
+                    }
+
+                    .block-flex {
+                        width: 100%;
+                        @include flex-center;
+
+                        .title {
+                            &.bold-10 {
+                                flex: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &--right {
+                width: 100%;
+
+                .steps {
+                    &:hover {
+                        .ellipse {
+                            &.bg-red3 {
+                                background-color: $red3;
+                                color: $white;
+                            }
+                        }
+
+                        .title {
+                            color: $gray2;
+                        }
+                    }
+                }
+
+                .block-title {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    margin: 24px 0 9px;
+                }
+
+                .block__flex {
+                    &--main {
+                        width: 100%;
+
+                        .content-placa {
+                            padding: 40px 32px 56px;
+                            background-color: $gray7;
+
+                            .title {
+                                &.reg-28 {
+                                    margin-bottom: 8px;
+                                    letter-spacing: -.6px;
+                                }
+                            }
+                        }
+
+                        .boxPlaca {
+                            margin-top: 24px;
+
+                            .paragraph {
+                                letter-spacing: .2px;
+                            }
+                        }
+
+                        .block-flex {
+                            @include flex-center;
+                            gap: 44px;
+                            grid-row-gap: 20px;
+                            margin: 44px 32px 36px;
+                            flex-wrap: wrap;
+
+                            .info {
+                                .title {
+                                    &.reg-16 {
+                                        letter-spacing: .6px;
+                                    }
+                                }
+
+                                .boxMinMaxText {
+                                    margin-top: 4px;
+                                }
+                            }
+                        }
+                    }
+
+                    &--aside {
+                        position: fixed;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        box-shadow: 0px 1px 4px rgba(163, 171, 204, 0.06), 0px 8px 30px rgba(20, 43, 127, 0.1);
+                        background-color: $white;
+                        width: 100%;
+                        padding: 14px 32px;
+                        @include flex-center;
+                        justify-content: space-between;
+                        gap: 24px;
+                        
+                        .title {
+                            &.bold-12 {
+                                letter-spacing: .6px;
+                            }
+
+                            &.reg-28 {
+                                letter-spacing: -.2px;
+                            }
+
+                            &.reg-16 {
+                                margin-bottom: 12px;
+                                letter-spacing: .2px;
+                            }
+                        }
+
+                        .paragraph {
+                            &.reg-12 {
+                                letter-spacing: .8px;
+                            }
+                        }
+
+                        .line {
+                            margin: 19px 0 24px;
+                        }
+
+                        .block-flex {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                            margin-bottom: 32px
+                        }
+
+                        .btn {
+                            @include btn;
+                            padding: 16px 32px;
+                        }
+                    }
+                }
+            }
+        }
+
+        &::after {
+            content: "";
+            display: none;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            max-width: 245px;
+            background-color: $gray7;
+        }
+
+        @include breakpoint-up(medium) {
+            min-height: calc(100vh - 65px);
+            overflow: hidden;
+            padding-bottom: 0;
+
+            .container {
+                padding: 0 32px;
+            }
+
+            .full-screen {
+                padding-top: 48px;
+                padding-bottom: 52px;
+                min-height: calc(100vh - 65px);
+            }
+
+            &__content {
+                display: flex;
+                
+                &--left {
+                    max-width: 212px;
+
+                    .steps {
+                        width: fit-content;
+                        display: initial;
+                        padding: 0;
+                        
+                        .title {
+                            padding-left: 0;
+                        }
+                    }
+                }
+
+                &--right {
+                    padding: 0 0 0 32px;
+
+                    .block__flex {
+                        display: flex;
+
+                        &--main {
+                            padding-right: 32px;
+
+                            .content-placa {
+                                padding: 0;
+                                background-color: transparent;
+                            }
+
+                            .boxPlaca {
+                                margin-top: 35px;
+                            }
+
+                            .block-flex {
+                                margin: 55px 0 43px;
+                            }
+                        }
+    
+                        &--aside {
+                            display: initial;
+                            padding: 0;
+                            position: initial;
+                            max-width: 30.6%;
+                            box-shadow: initial;
+                            
+                            .title {
+                                &.reg-28 {
+                                    margin: 10px 0 4px;
+                                }
+                            }
+
+                            .paragraph {
+                                &.reg-12 {
+                                    letter-spacing: .2px;
+                                }
+                            }
+
+                            .block-flex {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 8px;
+                                margin-bottom: 32px
+                            }
+
+                            .btn {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                display: block;
+            }
+        }
+
+        @include breakpoint-up(large) {
+            &__content {
+                display: flex;
+                
+                &--left {
+                    max-width: 260px;
+                }
+
+                &--right {
+                    padding: 0 32px 0 96px;
+
+                    .block__flex {
+                        &--main {
+                            padding-right: 96px;
+                        }
+                    }
+                }
+            }
+
+            &::after {
+                width: 100%;
+                max-width: calc(50% - 300px);
+            }
+        }
     }
 }

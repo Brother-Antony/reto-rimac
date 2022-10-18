@@ -1,14 +1,10 @@
-import Header from './components/Header';
-import SectionLogin from './components/SectionLogin';
-import './Styles.scss';
+import React from 'react';
+import Plan from './pages/Plan';
 
-function App() {
+const App = () => {
   return (
-    <div className='account'>
-      <Header/>
-      <SectionLogin/>
-    </div>
-  );
+    <Plan/>
+  )
 }
 
 export default App;
