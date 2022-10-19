@@ -4,7 +4,7 @@ import SectionLogin from '../components/SectionLogin';
 import '../styles.scss';
 import '../styles/Login.scss';
 
-const Gracias = () => {
+const Login = () => {
   return (
     <div className='account'>
       <Header/>
@@ -13,4 +13,4 @@ const Gracias = () => {
   )
 }
 
-export default Gracias;
+export default Login;

@@ -115,7 +115,7 @@ class SectionPlan extends Component {
                     <div className="line hide-for-mobile"></div>
                   </main>
 
-                  <main className="block__flex--aside">
+                  <aside className="block__flex--aside">
                     <div>
                       <div className="title bold-12 gray-1 hide-for-mobile">MONTO</div>
                       <div className="title reg-28 gray-1">$35.00</div>
@@ -154,7 +154,7 @@ class SectionPlan extends Component {
                     </div>
 
                     <Link to="/gracias" className="btn red">LO QUIERO</Link>
-                  </main>
+                  </aside>
                 </div>
               </div>
             </div>
