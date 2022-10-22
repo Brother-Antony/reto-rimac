@@ -15,6 +15,12 @@ class SectionPlan extends Component {
     }
   }
 
+  cerrarSesion = () => {
+    cookies.remove('id', {path: "/"});
+    cookies.remove('name', {path: "/"});
+    window.location.href = "../";
+  }
+
   render() {
     return (
       <section className="plan">
@@ -57,13 +63,13 @@ class SectionPlan extends Component {
               </div>
 
               <div className="plan__content--right">
-                <Link to="/" className="steps steps__flex hide-for-mobile">
+                <button type="button" className="steps steps__flex hide-for-mobile" onClick={() => this.cerrarSesion()}>
                   <div className="ellipse bg-red3">
                     <FontAwesomeIcon icon={faChevronLeft} className="ellipse--icon" />
                   </div>
 
                   <div className="title reg-12 gray-3">VOLVER</div>
-                </Link>
+                </button>
 
                 <div className="block-title hide-for-mobile">
                   <div className="title reg-40 gray-1">¡Hola, <span className="red">{cookies.get('name')}!</span></div>
